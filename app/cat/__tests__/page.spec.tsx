@@ -1,9 +1,11 @@
-import { render, renderHook, screen, waitFor } from "@testing-library/react";
+import { renderHook, waitFor } from "@testing-library/react";
 import Cat, { useCatQuery } from "../page";
 import { createWrapper, renderWithClient } from "@/tests/utils";
 import { rest } from "msw";
 import { server } from "@/tests/server";
 
+// For warning with act see this post below and try to fix it! :)
+// https://github.com/TanStack/query/issues/432
 describe("Cat Page", () => {
     it("renders as expected on success", async () => {
         await waitFor(async () => {
@@ -14,7 +16,7 @@ describe("Cat Page", () => {
 
     it("renders as expected on loading", async () => {
         const result = renderWithClient(<Cat />);
-        expect(result.findByAltText(/coming/i)).toBeTruthy();
+        expect(result.findByText(/coming/i)).toBeTruthy();
     });
 
     it("renders as expected on error", async () => {

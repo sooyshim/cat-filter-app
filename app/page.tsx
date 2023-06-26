@@ -20,7 +20,7 @@ export default function Home() {
             </div>
 
             <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-2 lg:text-left">
-                <Link href="/test">
+                <Link href="/tech-test">
                     <h2 className={`mb-3 text-2xl font-semibold`}>
                         Test{" "}
                         <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
